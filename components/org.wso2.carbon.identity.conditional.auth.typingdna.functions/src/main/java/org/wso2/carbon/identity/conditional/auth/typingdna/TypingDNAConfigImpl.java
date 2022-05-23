@@ -38,12 +38,14 @@ public class TypingDNAConfigImpl implements IdentityConnectorConfig {
     public static final String CREDENTIAL = "__secret__adaptive_authentication.tdna.password";
     public static final String ADVANCE_MODE_ENABLED = "adaptive_authentication.tdna.advanced.enabled";
     public static final String REGION = "adaptive_authentication.tdna.apiregion";
+    public static final String RECEIVER = "adaptive_authentication.tdna.receiver";
 
     public static final String DEFAULT_ENABLE = "false";
     public static final String DEFAULT_USERNAME = "change-me";
     public static final String DEFAULT_CREDENTIAL = "change-me";
     public static final String DEFAULT_ADVANCE_MODE_ENABLED = "false";
     public static final String DEFAULT_REGION = "eu";
+    public static final String DEFAULT_TARGET_HOST = "https://api-";
 
     @Override
     public String getName() {
@@ -85,6 +87,7 @@ public class TypingDNAConfigImpl implements IdentityConnectorConfig {
         mapping.put(CREDENTIAL, "API Secret");
         mapping.put(ADVANCE_MODE_ENABLED, "Advance TypingDNA-API Mode");
         mapping.put(REGION, "TypingDNA Cloud Region");
+        mapping.put(RECEIVER, "Target Host");
 
         return mapping;
     }
@@ -99,6 +102,7 @@ public class TypingDNAConfigImpl implements IdentityConnectorConfig {
         mapping.put(CREDENTIAL, "TypingDNA API Secret");
         mapping.put(ADVANCE_MODE_ENABLED, "Enable if your TypingDNA account is pro or enterprise");
         mapping.put(REGION, "TypingDNA Cloud Region. (eu /us)");
+        mapping.put(RECEIVER, "Target Host");
 
         return mapping;
     }
@@ -112,6 +116,7 @@ public class TypingDNAConfigImpl implements IdentityConnectorConfig {
         properties.add(CREDENTIAL);
         properties.add(ADVANCE_MODE_ENABLED);
         properties.add(REGION);
+        properties.add(RECEIVER);
         return properties.toArray(new String[0]);
     }
 
@@ -124,6 +129,7 @@ public class TypingDNAConfigImpl implements IdentityConnectorConfig {
         defaultProperties.put(CREDENTIAL, DEFAULT_CREDENTIAL);
         defaultProperties.put(ADVANCE_MODE_ENABLED, DEFAULT_ADVANCE_MODE_ENABLED);
         defaultProperties.put(REGION, DEFAULT_REGION);
+        defaultProperties.put(RECEIVER,DEFAULT_TARGET_HOST);
 
         Properties properties = new Properties();
         properties.putAll(defaultProperties);
